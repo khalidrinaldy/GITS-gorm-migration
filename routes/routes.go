@@ -25,6 +25,10 @@ func InitRoute() *echo.Echo {
 	//Database
 	db := openDatabase(cfg)
 	db.AutoMigrate(&entity.Student{})
+	db.AutoMigrate(&entity.Book{})
+	db.AutoMigrate(&entity.Movie{})
+	db.AutoMigrate(&entity.Runner{})
+	db.AutoMigrate(&entity.Car{})
 
 	//Student Routes
 	ech.GET("/students", controller.GetStudents(db))
